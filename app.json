@@ -1,0 +1,67 @@
+{
+  "expo": {
+    "name": "نُور",
+    "slug": "nour-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.jpeg",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.nour.app"
+    },
+    "android": {
+      "package": "com.nour.app",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.jpeg",
+        "backgroundColor": "#064E3B"
+      },
+      "permissions": [
+        "RECEIVE_BOOT_COMPLETED",
+        "SCHEDULE_EXACT_ALARM",
+        "POST_NOTIFICATIONS",
+        "VIBRATE",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-audio",
+        {
+          "enableBackgroundPlayback": true
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "sounds": [
+            "./assets/audio/mishary.mp3",
+            "./assets/audio/abdulbasit.mp3",
+            "./assets/audio/hossam.mp3",
+            "./assets/audio/aqsa.mp3",
+            "./assets/audio/makkah.mp3",
+            "./assets/audio/durar.mp3"
+          ]
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "نستخدم موقعك لحساب مواقيت الصلاة بدقة."
+        }
+      ],
+      "expo-asset",
+      "expo-font"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "1b1f7881-da1e-47fb-a3bc-e0337e54fe62"
+      }
+    }
+  }
+}
