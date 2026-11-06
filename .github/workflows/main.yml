@@ -16,31 +16,16 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
           cache: 'npm'
-
-      - name: Setup Java
-        uses: actions/setup-java@v5
-        with:
-          distribution: 'temurin'
-          java-version: '17'
 
       - name: Install Dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Install EAS CLI Globally
+      - name: Install EAS CLI
         run: npm install -g eas-cli
 
-      - name: Prebuild Native Project
-        run: npx expo prebuild --platform android --clean --non-interactive
-
       - name: Build APK on EAS Cloud
-        run: eas build --platform android --profile preview --non-interactive --clear-cache
+        run: eas build --platform android --profile preview --non-interactive
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
-
-      - name: Upload APK Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-release
-          path: '*.apk'
