@@ -31,9 +31,6 @@ jobs:
       - name: Install EAS CLI Globally
         run: npm install -g eas-cli
 
-      - name: Prebuild Android
-        run: npx expo prebuild --platform android --non-interactive
-
       - name: Build Local APK
         run: eas build --platform android --profile preview --local --non-interactive
         env:
